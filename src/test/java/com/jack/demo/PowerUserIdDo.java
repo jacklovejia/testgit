@@ -54,14 +54,15 @@ public class PowerUserIdDo implements Serializable {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof PowerUserIdDo)) return false;
+        if (o == null || getClass() != o.getClass()) return false;
         PowerUserIdDo that = (PowerUserIdDo) o;
-        return getConsNo().equals(that.getConsNo());
+        return Objects.equals(consNo, that.consNo) &&
+                Objects.equals(proNo, that.proNo);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getConsNo());
+        return Objects.hash(consNo, proNo);
     }
 
     public String getConsNo() {
